@@ -330,11 +330,11 @@ transform: translateX(50%);
   transition: opacity 0.5s ease-in-out;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     #intro-video {
         top: 25%;
         left: 0;
-        width: 100%;
+        width: 200%;
     }
 }
 
@@ -362,3 +362,4 @@ transform: translateX(50%);
     color: white;
 
 }
+
