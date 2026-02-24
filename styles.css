@@ -334,7 +334,7 @@ transform: translateX(50%);
     #intro-video {
         top: 25%;
         left: 0;
-        width: 200%;
+        width: 100%;
     }
 }
 
@@ -362,5 +362,6 @@ transform: translateX(50%);
     color: white;
 
 }
+
 
 
