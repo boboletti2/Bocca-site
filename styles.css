@@ -52,6 +52,9 @@ body {
     bottom: 40px;
     left: 5%;
     z-index: 1000;
+    justify-content: space-between;
+    width: 90%;
+    display: flex;
 }
 
 /* Standard (Hvid tekst til forsiden) */
@@ -62,6 +65,7 @@ body {
 
 .content-wrapper {
     min-width:40%;
+    
 
 }
 
@@ -95,11 +99,16 @@ a {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
-    background: url('Skærmbillede\ 2026-02-17\ 142303.png');
+    background: url('baggrund.png');
     background-size: cover;
     background-position: center;
     transform: scaleX(-1);
     filter: contrast(1.1) brightness(0.9);
+}
+.info-text {
+width: 50%;
+justify-self: center;
+/*transform: translateX(50%);*/
 }
 
 #home a, #home .info-text p {
@@ -119,7 +128,7 @@ a {
 
 .contact-page a, #menu a, .light-page a,
 .contact-page h2, #menu h1, .light-page h2,
-.email-link, .sub-text {
+.email-link, .sub-text, h4{
     color: var(--bocca-red) !important;
     text-shadow: none !important;
 }
@@ -299,3 +308,56 @@ a {
  @font-face { font-family: Pulpo; src: url('pulpo-black-italic.ttf'); } 
 
 
+/* The main container covering the screen */
+#intro-overlay { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #D43A32; /* Matches your video background */
+  z-index: 9999; /* Keeps it on top of everything */
+  transition: opacity 1s ease-in-out;
+}
+
+/* Force video and image to fill the screen */
+#intro-video {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    #intro-video {
+        top: 25%;
+        left: 0;
+        width: 100%;
+    }
+}
+
+
+#intro-video {
+  z-index: 1000; /* Front layer */
+}
+
+/* Helper classes we will trigger with JavaScript */
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.aboutus-body {
+    background-color: #D43A32 !important;
+}
+
+.aboutus-content {
+    color: white;
+}
