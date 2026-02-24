@@ -107,8 +107,8 @@ a {
 }
 .info-text {
 width: 50%;
-justify-self: center;
-/*transform: translateX(50%);*/
+/*justify-self: center;*/
+transform: translateX(50%);
 }
 
 #home a, #home .info-text p {
@@ -360,4 +360,5 @@ justify-self: center;
 
 .aboutus-content {
     color: white;
+
 }
