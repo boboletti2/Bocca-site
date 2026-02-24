@@ -1,0 +1,301 @@
+/* --- GLOBAL VARIABLES & RESET --- */
+:root {
+    --bocca-red: #c6605c; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: white; /* Prevents "gray" flash on load */
+}
+
+body {
+    font-family: 'Georgia', serif;
+    animation: fadeInPage 0.8s ease-in-out;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- REUSABLE LAYOUT --- */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This keeps content centered vertically */
+    align-items: center;     /* This keeps content centered horizontally */
+    text-align: center;
+    position: relative;
+    padding: 20px;
+}
+
+.top-nav {
+    position: fixed;
+    top: 40px;
+    width: 90%;
+    left: 5%; /* Centrerer den */
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 40px;
+    left: 5%;
+    z-index: 1000;
+}
+
+/* Standard (Hvid tekst til forsiden) */
+.top-nav a, .bottom-nav a {
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.content-wrapper {
+    min-width:40%;
+
+}
+
+/* Den klasse vi tilføjer via JavaScript */
+.nav-scrolled a {
+    color: var(--bocca-red) !important;
+    text-shadow: none !important;
+}
+
+a {
+    text-decoration: none;
+    font-style: italic;
+    font-family: 'Pulpo';
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.footerlinks a {
+    font-size: 0.9rem;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    a {
+    font-size: 0.9rem;
+    }
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: url('Skærmbillede\ 2026-02-17\ 142303.png');
+    background-size: cover;
+    background-position: center;
+    transform: scaleX(-1);
+    filter: contrast(1.1) brightness(0.9);
+}
+
+#home a, #home .info-text p {
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.logo-icon {
+    width: 320px;
+    margin-bottom: 20px;
+}
+
+/* --- LIGHT PAGES (ORDER, CONTACT, MENU) --- */
+.contact-page, #menu, .light-page {
+    background-color: white !important;
+}
+
+.contact-page a, #menu a, .light-page a,
+.contact-page h2, #menu h1, .light-page h2,
+.email-link, .sub-text {
+    color: var(--bocca-red) !important;
+    text-shadow: none !important;
+}
+
+.contact-content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- SCROLL SNAP & INDICATOR --- */
+.scroll-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 80px; /* Adjust this number to move arrow up/down */
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.arrow {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+}
+
+
+
+/* --- UPDATED MENU SECTION --- */
+#menu {
+    background-color: #ffffff !important;
+    color: var(--bocca-red);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Allows natural scrolling from the top */
+    align-items: center;
+    overflow-y: auto; /* Important for long menus */
+    padding: 10vh 20px; /* Uses 10% of viewport height as top padding */
+    min-height: 100vh; /* Ensures it's at least one full screen */
+}
+
+.menu-container {
+    width: 90%; /* Occupies most of the screen width */
+    max-width: 1200px; /* But doesn't get ridiculously wide on huge monitors */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- UPDATED MENU GRID --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
+    gap: 8vh 4vw; /* Uses viewport-based units for consistent spacing */
+    width: 100%;
+    margin: 40px 0;
+}
+
+.menu-title {
+    font-size: clamp(3rem, 8vw, 6rem); /* Scales title based on screen size */
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-family: 'Pulpo';
+}
+
+/* --- UPDATED MENU ITEM --- */
+.menu-item {
+    padding: 10px;
+}
+
+.menu-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.menu-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 450px; /* Prevents text lines from getting too long/hard to read */
+}
+
+/* Ensure both menu sections use the grid */
+.menu-grid {
+    display: grid;
+    /* This creates two columns on desktop, one on mobile automatically */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 40px 60px;
+    width: 100%;
+    text-align: left;
+    margin: 40px 0;
+}
+
+/* Specific styling for the logo divider between menus */
+.menu-divider-logo {
+    width: 200px; /* Slightly larger for impact */
+    margin: 80px auto;
+    display: block;
+    /* This filter turns the black/white logo into your terracotta red */
+    filter: invert(48%) sepia(13%) saturate(1637%) hue-rotate(315deg) brightness(91%) contrast(83%);
+    opacity: 0.8;
+}
+
+.menu-block h1 {
+    font-size: 3rem;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.afoot {
+    width: 100%;
+    min-height: 200px; /* Justeret så den ikke er unødvendigt høj */
+    background-color: #c6605c;
+    display: flex;
+    align-items: center; /* Centrerer indholdet lodret */
+    padding: 0 5%; /* Giver lidt luft i siderne */
+}
+
+.footerkasse {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.footerlinks {
+    display: flex;
+    gap: 20px; 
+}
+
+.footerlinks a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Georgia', serif;
+    font-size: 0.7rem;
+}
+
+.footerbil {
+    width: 20rem;
+    height: auto;
+    object-fit: contain;
+}
+
+
+@media (max-width: 768px) {
+    .footerbil {
+        display: none;
+    }
+    
+    .footerkasse {
+        justify-content: center; 
+    }
+    
+    .footerlinks {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+
+ @font-face { font-family: Pulpo; src: url('pulpo-black-italic.ttf'); } 
+
+

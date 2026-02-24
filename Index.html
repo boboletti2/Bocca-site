@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booca Alimentari & Café</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+<script>
+    window.addEventListener('scroll', function() {
+        const topNav = document.querySelector('.top-nav');
+        const bottomNav = document.querySelector('.bottom-nav');
+        const menuSection = document.querySelector('#menu');
+        
+        // Find ud af hvor menuen starter i forhold til toppen af skærmen
+        const menuPosition = menuSection.getBoundingClientRect().top;
+
+        // Hvis toppen af menuen er 50px fra toppen (eller højere oppe)
+        if (menuPosition <= 50) {
+            topNav.classList.add('nav-scrolled');
+            bottomNav.classList.add('nav-scrolled');
+        } else {
+            topNav.classList.remove('nav-scrolled');
+            bottomNav.classList.remove('nav-scrolled');
+        }
+    });
+</script>
+<body>
+
+<div class="scroll-container">
+            <nav class="top-nav">
+                <a href="#menu">SANDWICHES</a> 
+                <a href="midlertidig.html">ORDER</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+
+            <footer class="bottom-nav">
+                <a href="https://www.instagram.com/boccakbh/?hl=da">SOCIAL</a>
+            </footer>
+        <section class="hero-section" id="home">
+
+            <main class="content-wrapper">
+                <img src="BoccaAliLogoTH.png" alt="Bocca Logo" class="logo-icon">
+                <div class="info-text">
+                    <p>BOCCA ALIMENTARI IS A MODERN ITALIAN DELI INSPIRED BY THE EVERYDAY FOOD CULTURE OF SOUTHERN ITALY.</p>
+                    <p>C/ Vester Farimagsgade, 6 | TLF +45 53 73 37 76</p>
+                </div>
+            </main>
+
+            <div class="scroll-indicator">
+                <span>SCROLL FOR MENU</span>
+                <div class="arrow">↓</div>
+            </div>
+
+
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="menu-container">
+                
+                <div class="menu-block">
+                    <h1 class="menu-title">BOCCA ALIMENTARI</h1>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <h3>IL BOSS 95</h3>
+                            <p>HOUSE-BAKED SCHIACCIATA WITH MORTADELLA, HOMEMADE PISTACHIO PESTO, ORGANIC STRACCIATELLA AND FRESH RUCOLA.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h3>IL ARCO 95</h3>
+                            <p>PAGNOTELLA SALAMI, ORGANIC MOZZARELLA, HOMEMADE ARTICHOKE CREAM, BASIL PESTO AND FRESH RUCOLA.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h3>CAPOCOLLO 95</h3>
+                            <p>HOUSE-BAKED SCHIACCIATA WITH CAPOCOLLO, HOMEMADE ROMESCO, GRILLED PEPPERS, ORGANIC MOZZARELLA FROM LA TRECCIA AND FRESH RUCOLA.</p>
+                        </div>
+                         <div class="menu-item">
+                            <h3>PARMIGIANA (veg) 95</h3>
+                            <p>HOUSE-BAKED SCHIACCIATA WITH PARMIGIANA DI MELANZANE, PARMESAN, HOMEMADE BASIL PESTO AND FRESH RUCOLA..</p>
+                        </div>
+                        </div>
+                </div>
+                <!--
+                <img src="bocca logo.png" class="menu-divider-logo" alt="logo">
+
+                <div class="menu-block">
+                    <h1 class="menu-title">BOCCA CAFÉ</h1>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <h3>RYE BREAD 60</h3>
+                            <p>HOUSE RYE BREAD WITH GAMMELKNAS CHEESE, BUTTER, AND A SOFT BOILED EGG.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h3>GRANOLA 80</h3>
+                            <p>GREEK YOGHURT WITH HOUSE GRANOLA, SEASONAL COMPOTE, PISTACHIO AND EXTRA VIRGIN OLIVEOIL.</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </section>
+        <footer class="afoot">
+          <div class="footerkasse">
+                <nav class="footerlinks">
+                    <a href="#">Policy</a>
+                    <a>Vester Farimagsgade 6, 1606, København V</a>
+                    <a>INFO@EATBOCCA.COM</a>
+                    <a href="https://www.findsmiley.dk/1508528">Smiley Reports</a>
+                </nav>
+                <img src="Hylde hvid.png" class="footerbil">
+          </div>
+
+        </footer>
+    </div>
+
+</body>
+</html>
+
+
