@@ -302,6 +302,10 @@ transform: translateX(50%);
         text-align: center;
         gap: 10px;
     }
+    .menu-item {
+        padding: 20px;
+    }
+
 }
 
 
@@ -319,6 +323,7 @@ transform: translateX(50%);
   background-color: #D43A32; /* Matches your video background */
   z-index: 9999; /* Keeps it on top of everything */
   transition: opacity 1s ease-in-out;
+  background-size: cover;
 }
 
 /* Force video and image to fill the screen */
@@ -365,3 +370,14 @@ transform: translateX(50%);
 
 
 
+body {
+  /* Default padding for older browsers */
+  padding-top: 20px; 
+  padding-bottom: 20px;
+
+  /* Use the safe area insets for modern devices */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
