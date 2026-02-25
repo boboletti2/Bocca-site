@@ -339,7 +339,7 @@ transform: translateX(50%);
 /* Force video and image to fill the screen */
 #intro-video {
 position: relative; 
-  width: 50%;
+  width: 70%;
   max-width: 100%;
   transition: opacity 0.5s ease-in-out;
   z-index: 1000;
@@ -347,9 +347,7 @@ position: relative;
 
 @media (max-width: 900px) {
     #intro-video {
-        top: 25%;
-        left: 0;
-        width: 100%;
+        width: 150% !important;
     }
 }
 
