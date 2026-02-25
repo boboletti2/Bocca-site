@@ -308,6 +308,14 @@ transform: translateX(50%);
 
 }
 
+@media (max-width: 380px) {
+
+    .menu-item {
+        padding: 40px;
+    }
+
+}
+
 
  @font-face { font-family: Pulpo; src: url('pulpo-black-italic.ttf'); } 
 
@@ -318,8 +326,10 @@ transform: translateX(50%);
   top: 0;
   left: 0;
   display: flex;
+  justify-content: center; /* Centers video horizontally */
+  align-items: center;
   width: 100vw;
-  height: 110vh;
+  height: 100dvh;
   background-color: #D43A32; /* Matches your video background */
   z-index: 9999; /* Keeps it on top of everything */
   transition: opacity 1s ease-in-out;
@@ -328,11 +338,11 @@ transform: translateX(50%);
 
 /* Force video and image to fill the screen */
 #intro-video {
-  position: absolute;
-  top: 25%;
-  left: 25%;
+position: relative; 
   width: 50%;
+  max-width: 100%;
   transition: opacity 0.5s ease-in-out;
+  z-index: 1000;
 }
 
 @media (max-width: 900px) {
@@ -344,9 +354,6 @@ transform: translateX(50%);
 }
 
 
-#intro-video {
-  z-index: 1000; /* Front layer */
-}
 
 /* Helper classes we will trigger with JavaScript */
 .fade-out {

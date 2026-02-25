@@ -33,11 +33,11 @@
   const overlay = document.getElementById("intro-overlay");
   const video = document.getElementById("intro-video");
 
-  // 1. Check if the user has already seen the intro this session
+  
   if (sessionStorage.getItem("introPlayed")) {
     overlay.classList.add("hidden");
-    document.body.style.overflow = "auto"; // Restore scrolling
-    return; // Stop the script here
+    document.body.style.overflow = "auto"; 
+    return; 
   }
 
   // 2. If it's the initial load, play the video
@@ -46,10 +46,9 @@
       console.log("Autoplay was blocked by the browser:", error);
   });
 
-  // 3. Play video for a few seconds, then fade to static image
-  // Change 3000 (3 seconds) to however long you want the video to play
+
   setTimeout(() => {
-    video.classList.add("fade-out"); // Fades video, revealing the image behind it
+    video.classList.add("fade-out"); 
     
     // 4. Show the static image for a moment, then fade out the whole overlay
     // Change 1500 (1.5 seconds) to adjust how long the static image stays on screen
