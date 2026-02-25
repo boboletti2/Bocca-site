@@ -126,7 +126,7 @@ transform: translateX(50%);
     background-color: white !important;
 }
 
-.contact-page a, #menu a, .light-page a,
+.contact-page a,.contact-page p, #menu a, .light-page a,
 .contact-page h2, #menu h1, .light-page h2,
 .email-link, .sub-text, h4{
     color: var(--bocca-red) !important;
@@ -321,19 +321,21 @@ transform: translateX(50%);
 
 
 /* The main container covering the screen */
+/* The main container covering the screen */
 #intro-overlay { 
   position: fixed;
   top: 0;
   left: 0;
+  right: 0; /* Pins firmly to both edges, replacing 100vw and killing the sliver */
+  height: 100dvh; /* Keeps your dynamic mobile notch/toolbar protection! */
   display: flex;
-  justify-content: center; /* Centers video horizontally */
+  justify-content: center; 
   align-items: center;
-  width: 100vw;
-  height: 100dvh;
-  background-color: #D43A32; /* Matches your video background */
-  z-index: 9999; /* Keeps it on top of everything */
+  background-color: #D43A32; 
+  z-index: 9999; 
   transition: opacity 1s ease-in-out;
   background-size: cover;
+  overflow: hidden; /* Still strictly required to contain the 150% video overflow */
 }
 
 /* Force video and image to fill the screen */
@@ -376,9 +378,9 @@ position: relative;
 
 
 body {
-  /* Default padding for older browsers */
-  padding-top: 20px; 
-  padding-bottom: 20px;
+
+  margin: 0;
+  padding: 0;
 
   /* Use the safe area insets for modern devices */
   padding-top: env(safe-area-inset-top);
@@ -394,4 +396,9 @@ body {
     flex-direction: column;
     width: 100%;
     text-transform: uppercase;
+}
+
+
+.hours-blockabo {
+    color: white;
 }
