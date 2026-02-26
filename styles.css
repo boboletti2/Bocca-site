@@ -341,7 +341,7 @@ transform: translateX(50%);
 /* Force video and image to fill the screen */
 #intro-video {
 position: relative; 
-  width: 70%;
+  width: 60%;
   max-width: 100%;
   transition: opacity 0.5s ease-in-out;
   z-index: 1000;
@@ -367,6 +367,7 @@ position: relative;
 
 
 .aboutus-body {
+    height: 100%;
     background-color: #D43A32 !important;
 }
 
@@ -401,4 +402,186 @@ body {
 
 .hours-blockabo {
     color: white;
+}
+
+/* --- ABOUT US SPECIFIC STYLES --- */
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    /* This adds the space you need at the top */
+    padding-top: 160px; 
+    padding-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    
+    /* Optional: Smooth entrance for the whole section */
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Adjust the top spacing for mobile so it's not TOO large */
+@media (max-width: 768px) {
+    .about-container {
+        padding-top: 100px; 
+    }
+}
+.about-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+    text-align: left;
+}
+
+/* Flips the order for every other row on desktop */
+.about-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px; /* Subtle crisp edge */
+}
+
+.about-image figcaption {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.8;
+    font-family: 'Georgia', serif;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-family: 'Pulpo', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.about-text p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* --- HOURS SECTION --- */
+.hours-section {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 60px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.hours-card {
+    text-align: center;
+    max-width: 400px;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    font-family: 'Pulpo';
+    letter-spacing: 1px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 850px) {
+    .about-row, .about-row.reverse {
+        flex-direction: column; /* Stacks everything */
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-image {
+        width: 100%;
+        order: -1; /* Ensures image always stays above text on mobile */
+    }
+}
+
+
+/* --- DOUBLE IMAGE GRID --- */
+.about-image-double {
+    flex: 1.2; /* Slightly wider than the text for impact */
+    display: flex;
+    flex-direction: column;
+}
+
+.double-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 15px; /* Space between the two images */
+}
+
+.double-grid img {
+    width: 100%;
+    height: 350px; /* Fixed height to keep them uniform */
+    object-fit: cover; /* Crops the image to fit the box without stretching */
+    border-radius: 2px;
+}
+
+.about-image-double figcaption {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.8;
+    text-align: left;
+}
+
+/* --- MOBILE ADJUSTMENTS --- */
+@media (max-width: 850px) {
+    .double-grid {
+        gap: 10px;
+    }
+    
+    .double-grid img {
+        height: 250px; /* Slightly shorter on mobile */
+    }
+    
+    .about-image-double {
+        order: -1; /* Keeps images above text on mobile */
+        margin-bottom: 20px;
+    }
+}
+
+#contactHours {
+    color: var(--bocca-red)
+}
+
+#strandimg {
+    width: 100%;
+}
+
+
+.about-container h1 {
+    font-family: 'Pulpo', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
