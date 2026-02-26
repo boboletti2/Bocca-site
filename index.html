@@ -6,27 +6,31 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 <script>
-    window.addEventListener('scroll', function() {
-        const topNav = document.querySelector('.top-nav');
-        const bottomNav = document.querySelector('.bottom-nav');
-        const menuSection = document.querySelector('#menu');
-        const bottomSec = document.querySelector('#botmenu');
+   window.addEventListener('scroll', function() {
+    const topNav = document.querySelector('.top-nav');
+    const bottomNav = document.querySelector('.bottom-nav');
+    const menuSection = document.querySelector('#menu');
 
-        
-        const menuPosition = menuSection.getBoundingClientRect().top;
+    // Find ud af hvor menuen er i forhold til skærmen
+    const menuRect = menuSection.getBoundingClientRect();
+    
+    // TOP NAV: Skift farve når toppen af menuen rammer toppen af skærmen (ca. 50px)
+    if (menuRect.top <= 50) {
+        topNav.classList.add('nav-scrolled');
+    } else {
+        topNav.classList.remove('nav-scrolled');
+    }
 
-        if (menuPosition <= 50) {
-            topNav.classList.add('nav-scrolled');
-        } else {
-            topNav.classList.remove('nav-scrolled');
-        }
+    // BOTTOM NAV: Skift farve når bunden af skærmen rammer menuen
+    // Vi bruger window.innerHeight for at vide hvornår bunden af mobilen/browseren rammer det hvide
+    const scrollTrigger = window.innerHeight - 80; // 80px buffer fra bunden
 
-        if (menuPosition <= 700) {
-            bottomNav.classList.add('nav-scrolled');
-        } else {
-            bottomNav.classList.remove('nav-scrolled');
-        }
-    });
+    if (menuRect.top <= scrollTrigger) {
+        bottomNav.classList.add('nav-scrolled');
+    } else {
+        bottomNav.classList.remove('nav-scrolled');
+    }
+});
 
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -67,6 +71,35 @@
     }, 1500); 
 
   }, 3000); 
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. List your image filenames here exactly as they are in your /img folder
+    const images = [
+        'img/baggrund.png',
+        'img/nyvindrue.png',
+        'img/strand.jpeg',
+        'img/nyspiderman.png',
+        'img/oliventrans.jpg',
+        'img/olivenfald.jpg',
+        'img/maskine.jpeg',
+        'img/MandmedSkinke.jpeg',
+        'img/mandMedPasta.jpeg',
+        'img/kurvoliven.png',
+        'img/hanniOgMand.jpeg',
+        'img/Gutitre.jpg',
+        'img/nyglas.png'
+    ];
+
+    // 2. Pick a random index
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const selectedImage = images[randomIndex];
+
+    // 3. Apply it to the #home section
+    const homeSection = document.getElementById('home');
+    
+    // We use a CSS Variable so the ::before element can "see" the image
+    homeSection.style.setProperty('--random-bg', `url(${selectedImage})`);
 });
 </script>
 <body>
