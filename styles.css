@@ -45,6 +45,7 @@ body {
     display: flex;
     justify-content: space-between;
     z-index: 1000;
+    padding-top: calc(env(safe-area-inset-top));
 }
 
 .bottom-nav {
@@ -104,6 +105,7 @@ a {
     background-position: center;
     transform: scaleX(-1);
     filter: contrast(1.1) brightness(0.9);
+    min-height: 100dvh;
 }
 .info-text {
 width: 50%;
@@ -384,7 +386,6 @@ body {
   padding: 0;
 
   /* Use the safe area insets for modern devices */
-  padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
