@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Bocca Alimentari & Cafe - Vesterbro, Copenhagen</title>
+    <meta name="description" content="Bocca Alimentari is an Italian deli in Vesterbro, Copenhagen serving freshly baked focaccia, hand-sliced salumi and authentic Italian sandwiches made daily.">
+    <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Bocca Alimentari",
+  "url": "https://eatbocca.com",
+  "image": "https://eatbocca.com/images/interior.jpg",
+  "logo": "https://eatbocca.com/BoccaAliLogoTH.png",
+  "telephone": "+4553733776",
+  "servesCuisine": "Italian",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vester Farimagsgade 6",
+    "addressLocality": "Copenhagen",
+    "postalCode": "1606",
+    "addressCountry": "DK"
+  }
+}
+</script>
+  </head>
+<script>
+   window.addEventListener('scroll', function() {
+    const topNav = document.querySelector('.top-nav');
+    const bottomNav = document.querySelector('.bottom-nav');
+    const menuSection = document.querySelector('#menu');
+
+    // Find ud af hvor menuen er i forhold til skærmen
+    const menuRect = menuSection.getBoundingClientRect();
+    
+    // TOP NAV: Skift farve når toppen af menuen rammer toppen af skærmen (ca. 50px)
+    if (menuRect.top <= 50) {
+        topNav.classList.add('nav-scrolled');
+    } else {
+        topNav.classList.remove('nav-scrolled');
+    }
+
+    // BOTTOM NAV: Skift farve når bunden af skærmen rammer menuen
+    // Vi bruger window.innerHeight for at vide hvornår bunden af mobilen/browseren rammer det hvide
+    const scrollTrigger = window.innerHeight - 80; // 80px buffer fra bunden
+
+    if (menuRect.top <= scrollTrigger) {
+        bottomNav.classList.add('nav-scrolled');
+    } else {
+        bottomNav.classList.remove('nav-scrolled');
+    }
+});
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("intro-overlay");
+  const video = document.getElementById("intro-video");
+
+  
+  if (sessionStorage.getItem("introPlayed")) {
+    overlay.classList.add("hidden");
+    document.body.style.overflow = "auto"; 
+    return; 
+  }
+
+  // 2. If it's the initial load, play the video
+  // Note: Most browsers block autoplay unless the video is muted.
+  video.play().catch(error => {
+      console.log("Autoplay was blocked by the browser:", error);
+  });
+
+
+  setTimeout(() => {
+    video.classList.add("fade-out"); 
+    
+    // 4. Show the static image for a moment, then fade out the whole overlay
+    // Change 1500 (1.5 seconds) to adjust how long the static image stays on screen
+    setTimeout(() => {
+      overlay.classList.add("fade-out");
+      document.body.style.overflow = "auto"; // Restore scrolling for the website
+      
+      // Save to sessionStorage so it doesn't play on reload/page change
+      sessionStorage.setItem("introPlayed", "true");
+
+      // Optional: Completely remove the overlay from the DOM after it fades out
+      setTimeout(() => {
+        overlay.classList.add("hidden");
+      }, 1000); // Matches the 1s CSS transition on the overlay
+      
+    }, 1500); 
+
+  }, 3000); 
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. List your image filenames here exactly as they are in your /img folder
+    const images = [
+        'img/baggrund.png',
+        'img/nyvindrue.png',
+        'img/strand.jpeg',
+        'img/nyspiderman.png',
+        'img/oliventrans.jpg',
+        'img/olivenfald.jpg',
+        'img/maskine.jpeg',
+        'img/MandmedSkinke.jpeg',
+        'img/mandMedPasta.jpeg',
+        'img/kurvoliven.png',
+        'img/hanniOgMand.jpeg',
+        'img/Gutitre.jpg',
+        'img/nyglas.png'
+    ];
+
+    // 2. Pick a random index
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const selectedImage = images[randomIndex];
+
+    // 3. Apply it to the #home section
+    const homeSection = document.getElementById('home');
+    
+    // We use a CSS Variable so the ::before element can "see" the image
+    homeSection.style.setProperty('--random-bg', `url(${selectedImage})`);
+});
+</script>
+<body>
+
+<div id="intro-overlay">  
+  <video id="intro-video" muted playsinline>
+    <source src="Bocca animation.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<div class="scroll-container">
+            <nav class="top-nav">
+                <a href="#menu">SANDWICHES</a> 
+                <a href="midlertidig.html">ORDER</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+
+            <footer class="bottom-nav">
+                <a href="https://www.instagram.com/boccakbh/?hl=da">SOCIAL</a>
+                <a id="botmenu" href="about.html">ABOUT US</a>
+
+            </footer>
+        <section class="hero-section" id="home">
+
+            <main class="content-wrapper">
+                <img src="BoccaAliLogoTH.png" alt="Bocca Logo" class="logo-icon">
+                <div class="info-text">
+                    <p>BOCCA ALIMENTARI IS A MODERN ITALIAN DELI INSPIRED BY THE EVERYDAY FOOD CULTURE OF SOUTHERN ITALY.</p>
+                    <p><br>C/ Vester Farimagsgade, 6 </p>
+                    <p>TLF +45 53 73 37 76</p>
+                </div>
+            </main>
+
+<!--             <div class="scroll-indicator">
+                <span>SCROLL FOR MENU</span>
+                <div class="arrow">&#8595</div>
+            </div> -->
+
+
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="menu-container">
+                <div class="menu-block">
+                    <h1 class="menu-title">BOCCA ALIMENTARI</h1>
+
+                    <div class="menu-grid">
+
+                    </div>
+                </div>
+                <!--
+                <img src="bocca logo.png" class="menu-divider-logo" alt="logo">
+
+                <div class="menu-block">
+                    <h1 class="menu-title">BOCCA CAFÉ</h1>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <h3>RYE BREAD 60</h3>
+                            <p>HOUSE RYE BREAD WITH GAMMELKNAS CHEESE, BUTTER, AND A SOFT BOILED EGG.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h3>GRANOLA 80</h3>
+                            <p>GREEK YOGHURT WITH HOUSE GRANOLA, SEASONAL COMPOTE, PISTACHIO AND EXTRA VIRGIN OLIVEOIL.</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </section>
+        <footer class="afoot">
+          <div class="footerkasse">
+                <nav class="footerlinks">
+                    <a href="policy.html">Policy</a>
+                    <a>Vester Farimagsgade 6, 1606, Kobenhavn V</a>
+                    <a>INFO@EATBOCCA.COM</a>
+                    <a href="https://www.findsmiley.dk/1508528">Smiley Reports</a>
+                </nav>
+                <img src="Hylde hvid.png" class="footerbil">
+          </div>
+
+        </footer>
+    </div>
+
+<script>
+    const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS0k8S_4GGkT_t70tBqL_mcGRXuaiE-fr56SX66iIfPnWzlrm8fnL4Yu37PWzttl1e6M-D1m-UrXk-9/pub?output=csv';
+
+async function loadMenu() {
+    try {
+        const response = await fetch(SHEET_URL);
+        const data = await response.text();
+        
+        // Simple CSV parser
+        const rows = data.split('\n').slice(1); // Skip header row
+        const menuContainer = document.querySelector('.menu-grid');
+        
+        // Clear existing hardcoded items
+        menuContainer.innerHTML = '';
+
+// This replaces the simple split(',') to handle commas inside descriptions
+const parseCSV = (text) => {
+    const regex = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/;
+    return text.split(regex).map(val => val.replace(/^"|"$/g, '').trim());
+};
+
+rows.forEach(row => {
+    const columns = parseCSV(row);
+    const [name, price, description] = columns;
+    
+    if (name) {
+        const itemHTML = `
+            <div class="menu-item">
+                <h3>${name.toUpperCase()} ${price}</h3>
+                <p>${description.toUpperCase()}</p>
+            </div>
+        `;
+        menuContainer.insertAdjacentHTML('beforeend', itemHTML);
+    }
+});
+    } catch (error) {
+        console.error('Error loading menu:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadMenu);
+
+</script>
+    
+</body>
+</html>
+
+
+
+
